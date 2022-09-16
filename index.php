@@ -1,66 +1,106 @@
-
-<?php
-   // HYPERTEXT PREPROCESSOR
-
-    echo "<h1>Olá mundo</h1>";
-
-  //  Variaveis
- //   $name = 'saldanha';
-  //  echo $name;
-
-   // concatenar
-   // echo 'meu nome é '.$name;
-
- //  constantes
-  //  define('NOME', 'Guilherme');
- //   echo NOME;
-
-  //  Funções 
- //  Function somaDoisNumeros($a,$b){
-  //      echo'A soma dos numeros é: '. $a + $b;
-  //  }
-
- //   somaDoisNumeros(2,2)
-
-  // Função que corta frase 
-  //  echo substr ($frase, 0,8);
-
- //   laços de repetição 
-  //  for($i=1; $i<=100; $i++){
-   //     echo 'Saldanha' .$i;
-  //      echo '<br/>';
-  //  }
-
-        session_start();     
-        //  VALIDANDO FORM
-        if(isset($_POST['acao'])){
-         //recupero o valor do input.
-         $tarefa = strip_tags($_POST['tarefa']);
-
-         //verificar se existe seção tarefas.
-         if(!isset($_SESSION['tarefas'])){
-            $_SESSION['tarefas'] = array();
-            $_SESSION['tarefas'][] = $tarefa;
-         } else{
-            $_SESSION['tarefas'][] = $tarefa ;
-         }
-        }   
-?>
 <!DOCTYPE html>
-<html lang = "pt-br">
+<html lang="en">
 <head>
-   <title>Lista de Tarefas</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos Básicos</title>
 </head>
 <body>
-   <form action="aula.php" method="post">
-      <input type="text" name="tarefa" placeholder="digite sua tarefa...">
-      <input type="submit" name="acao" placeholder="Enviar!">
-  </form>
-  <h3>Suas Tarefas Atuais:</h3>
-  <?php
-        foreach ($_SESSION['tarefas'] as $key => $value){
-         echo '<p>'.$value.'</p>';
-        }
-   ?>
+    <?php 
+        echo "hello !!";
+     
+    ?>
+    <br>
+    <hr>
 </body>
 </html>
+
+<?php 
+       // print "minha idade é 21"
+
+       // VARIAVEIS 
+       echo '<h3>VARIAVEIS</h3>';
+       $nome = 'joão saldanha';
+       $idade = 21;
+       $altura = 1.68;
+
+       echo "meu nome é: $nome, minha idade é: $idade e tenho $altura ";
+       echo '<br>';
+       //variavel variavel
+       $bebida = 'refri';
+       $$bebida  = 'coca';
+       echo $refri;
+       echo '<hr>';
+
+       //tipos de dados 
+       echo '<h3>TIPOS DE DADOS</h3>';
+
+       /*************ESCALARES***********/
+       //string
+       $frasestring = "Olá mundo";
+       $numeroint = 13;
+       $numerofloat = 13.5;
+       $varbool = false;
+
+       var_dump($frasestring);
+       echo '<br>';
+       var_dump($numeroint);
+       echo '<br>';
+       var_dump($numerofloat);
+       echo '<br>';
+       var_dump($varbool);
+       echo '<br>';
+
+      /* if(is_string($frase)){
+        echo "é uma string";
+       } else{
+        echo "não é string ";
+       }
+       */
+
+            /*************COMPOSTOS***********/
+        $carrosarray = array("gol","uno","camaro");
+        var_dump($carrosarray);
+        echo '<br>';
+
+        // object
+        class Cliente{
+            public $nome;
+            public function atribuirNome($nome){
+                $this-> $nome = $nome;
+            }
+        }
+
+        $cliente = new Cliente();
+        $cliente -> atribuirNome("SALDANHA");
+
+        var_dump($cliente);
+        echo '<br>';
+        echo '<hr>';
+
+        // CONSTANTES
+
+        echo '<h3>CONSTANTES</h3>'; 
+        echo '<br>';
+        define("NOME", "José Carlos"); // string
+        define("IDADE", 24); // int 
+        define("CASADO",  true); //bool
+        DEFINE("TIMES", ['vasco', 'gremio', 'santos']); // array
+        echo 'meu nome é:  '.NOME.', minha idade é: '.IDADE; 
+        echo '<br>';
+        echo TIMES[0];
+        echo '<hr>';
+
+
+
+
+
+
+
+
+
+
+
+       
+    ?>
